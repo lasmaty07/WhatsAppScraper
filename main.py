@@ -15,11 +15,11 @@ import urllib
 
 class Scraper:
     def __init__(self):
-        chrome_options = Options()
-        chrome_options.add_argument("--window-size=1920x1080")
-        chrome_options.add_argument("user-data-dir=~/Library/Application Support/Google/Chrome/Default/Cookies")
-        self.driver = webdriver.Firefox()
+        #chrome_options = Options()
+        #chrome_options.add_argument("--window-size=1920x1080")
+        #chrome_options.add_argument("user-data-dir=~/Library/Application Support/Google/Chrome/Default/Cookies")
         #self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        self.driver = webdriver.Firefox()
         print("Opening Whatsapp Web Window")
         self.driver.get('https://web.whatsapp.com')
         print("Scan Your QR Codes and Press Enter (Press Enter if You're Already Logged In)")
@@ -80,7 +80,7 @@ class Scraper:
                     if type(result) == int :
                         raise Exception("Request failed with status %s" % result)
                     final_image = base64.b64decode(result)
-                    filename = 'images/'+str(i)+'.jpg'  # I assume you have a way of picking unique filenames
+                    filename = 'images/'+str(i)+'.jpg'
                     with open(filename, 'wb') as f:
                         f.write(final_image)
                         print("Saving "+filename+", Go To The Next Image")
@@ -125,7 +125,7 @@ class Scraper:
 
             time.sleep(2)
             print("==================Getting Stickers====================")            
-            stickers = self.driver.find_elements_by_class_name("_5auXc")
+            stickers = self.driver.find_elements_by_class_name("_5auXc") # the css class may change in the future.
             ii = 0
             print('Found ' + str(len(stickers)) + 'stickers')
             for sticker in stickers:
@@ -163,7 +163,6 @@ class Scraper:
 scraper = Scraper()
 
 while True:
-    print("Logged In")
     print("===================Menu=================")
     print("1. Scrape Stickers From Contact")
     print("2. Scrape Images From Contact")
