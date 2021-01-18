@@ -1,6 +1,6 @@
 # WhatsApp Scraper
 
-Script for getting stickers and images from a whatsapp chat, via whatsappweb.
+Script for getting stickers and images from a whatsapp chat, via whatsappweb. I created this script in order to move all my custom stickers from whatsapp to telegram.
 
 - This will NOT download ALL stickers from a chat, will only download cached stickers. at first instance *WhatsApp Web** just loads 14 stickers from any given chat, but if you scroll you could get all of them (not entirely tested)
 
