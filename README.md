@@ -1,4 +1,4 @@
-# WhatsApp Scraper
+# WhatsApp Scrapper
 
 Script for getting stickers and images from a whatsapp chat, via whatsappweb. I created this script in order to move all my custom stickers from whatsapp to telegram.
 
