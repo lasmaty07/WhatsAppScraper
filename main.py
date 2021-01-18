@@ -42,10 +42,6 @@ class Scraper:
                 contact = self.driver.find_element_by_xpath("//span[@title=\""+contact_name+"\"]")
             contact.click()
             print("Contact Found")
-
-
-            time.sleep(20)
-
             menu = self.driver.find_element_by_xpath("(//div[@title=\"Menu\"])[2]")
             menu.click()
             time.sleep(2)
@@ -113,8 +109,7 @@ class Scraper:
         try:
             print("Scrape Stickers From Contact Name ")
             print("Please Input a Contact Name :")
-            #contact_name = input()
-            contact_name = '+54 9 11 3083-7640'
+            contact_name = input()
             print("Search Contact")
             try:
                 contact = self.driver.find_element_by_xpath("//span[@title=\""+contact_name+"\"]")
@@ -151,7 +146,7 @@ class Scraper:
               if type(result) == int :
                     raise Exception("Request failed with status %s" % result)
               final_image = base64.b64decode(result)
-              filename = 'images/'+str(i) + '_' + str(ii) +'.webp'  # I assume you have a way of picking unique filenames
+              filename = 'images/'+str(i) + '_' + str(ii) +'.webp'
               with open(filename, 'wb') as f:
                   f.write(final_image)
                   print("Saving "+filename+", Go To The Next sticker")
@@ -167,13 +162,11 @@ class Scraper:
 
 scraper = Scraper()
 
-
-
 while True:
     print("Logged In")
     print("===================Menu=================")
-    print("1. Scrape Images From Contact")
-    print("2. Scrape Stickers From Contact")
+    print("1. Scrape Stickers From Contact")
+    print("2. Scrape Images From Contact")
     print("3. Quit")
     print("========================================")
     menu = input()
